@@ -35,9 +35,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/e44a56aec4ea4bd146e240f5611f96db.loader.js";
       var config = {
-        dataUrl: buildUrl + "/968e57b7b40c5c9b87884fddafd21b48.data",
-        frameworkUrl: buildUrl + "/263bca1362526244c07ab77a0a9211bb.framework.js",
-        codeUrl: buildUrl + "/b357f3c101094da8c0aa619a1d9b0970.wasm.gz",
+        dataUrl: buildUrl + "/ac7cb8e2d3449253d90319c67c299ef9.data",
+        frameworkUrl: buildUrl + "/777a3e0ea36e5918590cfec8fb478ccc.framework.js",
+        codeUrl: buildUrl + "/2d29d435bceb2fe45a03e30899a2a386.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Kideo Tech",
         productName: "Voca Tooki",
@@ -84,6 +84,8 @@
             c.style.height = height0;
           }
         });
+      var script = document.createElement("script");
+      script.src = loaderUrl;
       // GitHub can't hold the 199 MB .wasm, so it is stored gzipped and unzipped here.
       async function unzipCode(url) {
         var bytes = new Uint8Array(await (await fetch(url)).arrayBuffer());
@@ -91,8 +93,6 @@
         var blob = gz ? await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).blob() : new Blob([bytes]);
         return URL.createObjectURL(new Blob([blob], { type: "application/wasm" }));
       }
-      var script = document.createElement("script");
-      script.src = loaderUrl;
       script.onload = async () => {
         progressBarFull.style.width = "5%";
         config.codeUrl = await unzipCode(config.codeUrl);

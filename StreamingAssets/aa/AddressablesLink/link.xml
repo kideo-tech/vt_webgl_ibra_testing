@@ -795,12 +795,12 @@
     <type fullname="Metadata" preserve="nothing" serialized="true" />
     <type fullname="Word" preserve="nothing" serialized="true" />
     <type fullname="Wordsmetadatum" preserve="nothing" serialized="true" />
-    <type fullname="com.kideo.learn.english.Hint" preserve="nothing" serialized="true" />
     <type fullname="ActivityInfo" preserve="nothing" serialized="true" />
     <type fullname="IndieStudio.EnglishTracingBook.Game.ShapesManager/Shape" preserve="nothing" serialized="true" />
     <type fullname="LetterDisplayColors" preserve="nothing" serialized="true" />
     <type fullname="ShapeOptions" preserve="nothing" serialized="true" />
     <type fullname="TracingSentenceData" preserve="nothing" serialized="true" />
+    <type fullname="com.kideo.learn.english.Hint" preserve="nothing" serialized="true" />
     <type fullname="com.kideo.learn.english.VocaCity.CurrencyPresentation" preserve="nothing" serialized="true" />
     <type fullname="com.kideo.learn.english.VocaCity.IslandDefinition/BuildingAnchor" preserve="nothing" serialized="true" />
     <type fullname="com.kideo.learn.english.VocaCity.IslandDefinition/NoSeaArea" preserve="nothing" serialized="true" />
