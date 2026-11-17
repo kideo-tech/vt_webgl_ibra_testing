@@ -1,0 +1,10 @@
+{
+  "target": "WebGL",
+  "version": "5.0.0",
+  "androidCode": 192,
+  "development": true,
+  "cityBackend": "Stub",
+  "addressablesProfile": "PackAddressabels",
+  "built": "2026-11-16T22:59:52",
+  "sizeMB": 1689
+}
