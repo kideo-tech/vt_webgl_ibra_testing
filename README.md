@@ -2,17 +2,15 @@
 
 Development build, city on the **Stub** (fake local city data, no city server). Version 5.0.0, built 16 Nov 2026.
 
-## Run it
+## Play it
 
-1. Install [Git LFS](https://git-lfs.com/) once, then clone (the big `.wasm` file comes through LFS):
-   ```
-   git lfs install
-   git clone https://github.com/kideo-tech/vt_webgl_ibra_testing.git
-   ```
-2. Windows: double-click `run.bat`. Mac/Linux: `sh run.sh`. (Needs Python 3.)
-3. Open **http://localhost:8080/** in Chrome and sign in with a **test account**.
+Open **https://kideo-tech.github.io/vt_webgl_ibra_testing/** in Chrome on a computer and sign in with a **test account**.
+The first load downloads ~300 MB, so give it a minute.
 
-Login only works on `localhost:8080` (or `lvh.me`). Another port or a file:// link will fail at sign-in.
+## Run it locally (optional)
+
+Clone the repo, then on Windows double-click `run.bat` (Mac/Linux: `sh run.sh`; needs Python 3) and open **http://localhost:8080/**.
+Login only works on `localhost:8080`, `lvh.me` or the github.io link above.
 
 ## What to try
 
@@ -25,3 +23,4 @@ Login only works on `localhost:8080` (or `lvh.me`). Another port or a file:// li
 - Buying spends real game coins from the account: use test accounts.
 - Stub missions count any game you play.
 - Era films don't play on WebGL (check them on Android).
+- The game's `.wasm` is stored gzipped (GitHub's file limit) and `index.html` unzips it in the browser.

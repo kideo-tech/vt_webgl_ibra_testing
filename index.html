@@ -37,7 +37,7 @@
       var config = {
         dataUrl: buildUrl + "/968e57b7b40c5c9b87884fddafd21b48.data",
         frameworkUrl: buildUrl + "/263bca1362526244c07ab77a0a9211bb.framework.js",
-        codeUrl: buildUrl + "/b357f3c101094da8c0aa619a1d9b0970.wasm",
+        codeUrl: buildUrl + "/b357f3c101094da8c0aa619a1d9b0970.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Kideo Tech",
         productName: "Voca Tooki",
@@ -84,9 +84,18 @@
             c.style.height = height0;
           }
         });
+      // GitHub can't hold the 199 MB .wasm, so it is stored gzipped and unzipped here.
+      async function unzipCode(url) {
+        var bytes = new Uint8Array(await (await fetch(url)).arrayBuffer());
+        var gz = bytes[0] === 0x1f && bytes[1] === 0x8b;
+        var blob = gz ? await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).blob() : new Blob([bytes]);
+        return URL.createObjectURL(new Blob([blob], { type: "application/wasm" }));
+      }
       var script = document.createElement("script");
       script.src = loaderUrl;
-      script.onload = () => {
+      script.onload = async () => {
+        progressBarFull.style.width = "5%";
+        config.codeUrl = await unzipCode(config.codeUrl);
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
